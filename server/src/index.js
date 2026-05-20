@@ -7,6 +7,7 @@ import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
 import { createClient } from '@supabase/supabase-js';
+import ws from 'ws';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,7 +49,7 @@ const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.SUP
 const REGULATORY_DASHBOARD_URL = process.env.REGULATORY_DASHBOARD_URL || process.env.VITE_REGULATORY_DASHBOARD_URL || '';
 const RSS_CONFIG_PATH = process.env.RSS_CONFIG_PATH || path.resolve(ROOT_DIR, 'data/rss_sources.json');
 const CLIENT_DIST_DIR = path.resolve(ROOT_DIR, 'client/dist');
-const API_VERSION = 'v26-render-wsfix';
+const API_VERSION = 'v27-render-supabase-transportfix';
 
 const CORE_COLUMNS = [
   'uid', 'published_at', 'date', 'time', 'source', 'category', 'keywords', 'importance', 'qa_flag',
@@ -112,7 +113,8 @@ function requireSupabase() {
     throw new Error('SUPABASE_URL 또는 SUPABASE_SERVICE_KEY/SUPABASE_KEY가 설정되지 않았습니다.');
   }
   return createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false }
+    auth: { persistSession: false, autoRefreshToken: false },
+    realtime: { transport: ws }
   });
 }
 

@@ -1,0 +1,16 @@
+v27 Render Supabase transport fix
+
+Render/Node 20 환경에서는 Supabase realtime-js가 native WebSocket을 사용할 수 없습니다.
+server/package.json에 ws를 설치하는 것만으로는 부족하며, createClient 옵션에 realtime transport를 직접 전달해야 합니다.
+
+적용 내용:
+- server/src/index.js
+  - import ws from "ws";
+  - createClient(..., { realtime: { transport: ws } })
+- apiVersion: v27-render-supabase-transportfix
+
+Render 설정:
+Build Command: bash render-build.sh
+Start Command: node server/src/index.js
+Health Check Path: /api/health
+Environment Variables: SUPABASE_URL, SUPABASE_ANON_KEY, NODE_VERSION=20.11.1
