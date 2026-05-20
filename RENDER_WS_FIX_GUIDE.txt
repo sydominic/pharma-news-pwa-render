@@ -1,0 +1,20 @@
+v26 Render ws fix
+
+원인:
+- Render 서버 실행 중 Supabase JS의 RealtimeClient 초기화 과정에서 Node용 WebSocket 패키지인 ws를 찾지 못해 앱이 조기 종료되었습니다.
+- 이 앱에서 실시간 구독 기능을 직접 쓰지는 않지만, supabase-js 클라이언트 초기화 과정에서 ws 의존성이 필요할 수 있습니다.
+
+변경:
+- server/package.json dependencies에 ws를 추가했습니다.
+- API_VERSION을 v26-render-wsfix로 변경했습니다.
+
+Render 설정:
+- Build Command: bash render-build.sh
+- Start Command: node server/src/index.js
+- Environment Variables: SUPABASE_URL, SUPABASE_ANON_KEY, NODE_VERSION=20.11.1
+- PORT, VITE_API_BASE_URL은 넣지 않습니다.
+
+배포:
+- GitHub 루트에 이 폴더 안의 내용물을 업로드/덮어쓰기
+- package-lock.json, client/package-lock.json, server/package-lock.json, pnpm-lock.yaml은 없어야 합니다.
+- Render에서 Manual Deploy > Clear build cache & deploy

@@ -48,7 +48,7 @@ const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.SUP
 const REGULATORY_DASHBOARD_URL = process.env.REGULATORY_DASHBOARD_URL || process.env.VITE_REGULATORY_DASHBOARD_URL || '';
 const RSS_CONFIG_PATH = process.env.RSS_CONFIG_PATH || path.resolve(ROOT_DIR, 'data/rss_sources.json');
 const CLIENT_DIST_DIR = path.resolve(ROOT_DIR, 'client/dist');
-const API_VERSION = 'v25-render-pnpmfix';
+const API_VERSION = 'v26-render-wsfix';
 
 const CORE_COLUMNS = [
   'uid', 'published_at', 'date', 'time', 'source', 'category', 'keywords', 'importance', 'qa_flag',

@@ -1,6 +1,6 @@
 {
   "name": "pharma-news-pwa",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "description": "Pharma News RSS Dashboard React PWA + Node API MVP",
   "scripts": {
