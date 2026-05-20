@@ -1,0 +1,20 @@
+{
+  "name": "pharma-news-pwa",
+  "version": "0.1.8",
+  "private": true,
+  "description": "Pharma News RSS Dashboard React PWA + Node API MVP",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "install:all": "pnpm --dir server install --no-frozen-lockfile && pnpm --dir client install --no-frozen-lockfile",
+    "build": "pnpm --dir client run build",
+    "start": "node server/src/index.js",
+    "render:build": "bash render-build.sh"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "20.11.1"
+  },
+  "packageManager": "pnpm@9.15.4"
+}

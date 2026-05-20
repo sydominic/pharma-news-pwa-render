@@ -1,0 +1,22 @@
+Render 빌드 실패(npm ERR! Exit handler never called / unfinished npm timer) 대응 안내
+
+이번 v25는 Render 빌드에서 npm install을 사용하지 않고 pnpm으로 설치하도록 바꾼 버전입니다.
+
+Render Settings에서 아래처럼 바꾸세요.
+
+Build Command:
+bash render-build.sh
+
+Start Command:
+node server/src/index.js
+
+Environment Variables:
+SUPABASE_URL = 실제 Supabase URL
+SUPABASE_ANON_KEY = 실제 Supabase anon key
+NODE_VERSION = 20.11.1
+
+넣지 말 것:
+PORT
+VITE_API_BASE_URL
+
+변경 후 Manual Deploy > Clear build cache & deploy를 실행하세요.

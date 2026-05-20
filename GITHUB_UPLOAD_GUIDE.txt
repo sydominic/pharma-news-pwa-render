@@ -1,0 +1,40 @@
+GitHub 업로드 안내
+
+이 폴더의 내용물을 GitHub Repository 루트에 업로드하십시오.
+
+업로드 대상:
+- client/
+- server/
+- data/
+- docs/
+- scripts/
+- package.json
+- render.yaml
+- README.md
+- RENDER_FREE_DEPLOY.md
+- ONLINE_DEPLOY_PREP.md
+- .env.example
+- .env.online.example
+- .env.render.example
+- .gitignore
+- supabase_schema.sql
+- 로컬 실행용 .bat 파일들
+
+업로드 금지:
+- .env
+- node_modules/
+- client/node_modules/
+- server/node_modules/
+- client/dist/
+- *.log
+
+Render에는 GitHub에 .env를 올리지 말고, Render Environment Variables 화면에서 아래 값을 직접 입력하십시오.
+- SUPABASE_URL
+- SUPABASE_ANON_KEY
+- REGULATORY_DASHBOARD_URL (선택)
+
+Render 설정:
+- Service Type: Web Service
+- Build Command: npm run install:all && npm run build
+- Start Command: npm start
+- Health Check Path: /api/health

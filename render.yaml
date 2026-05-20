@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: pharma-news-pwa
+    env: node
+    plan: free
+    buildCommand: bash render-build.sh
+    startCommand: node server/src/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      - key: HOST
+        value: 0.0.0.0
+      - key: CACHE_DAYS
+        value: 30
+      - key: INITIAL_DAYS
+        value: 7
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: REGULATORY_DASHBOARD_URL
+        sync: false

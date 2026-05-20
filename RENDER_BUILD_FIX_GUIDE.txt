@@ -1,0 +1,30 @@
+Render 빌드 실패 수정 안내 (v24-render-npmfix)
+
+원인:
+- 이전 GitHub 업로드본에 포함된 client/server package-lock.json 내부 resolved URL이 로컬 생성 환경의 내부 registry를 가리킬 수 있습니다.
+- Render는 그 내부 registry에 접근할 수 없어 npm install 단계에서 실패할 수 있습니다.
+- v24에서는 package-lock.json을 제거하고 public npm registry를 강제하도록 정리했습니다.
+
+GitHub 업로드:
+1. 이 폴더 내용 전체를 기존 GitHub repository 루트에 덮어쓰기 업로드합니다.
+2. 삭제해야 할 파일:
+   - client/package-lock.json
+   - server/package-lock.json
+   위 2개가 GitHub에 남아 있으면 직접 삭제 commit 하십시오.
+3. .env는 업로드하지 마십시오.
+
+Render 설정:
+- Build Command: npm run install:all && npm run build
+- Start Command: npm start
+- Health Check Path: /api/health
+- Environment Variables:
+  - SUPABASE_URL = 실제 Supabase URL
+  - SUPABASE_ANON_KEY = 실제 Supabase anon key
+  - NODE_VERSION = 20.11.1
+
+재배포:
+- Manual Deploy > Clear build cache & deploy
+
+확인:
+- https://서비스주소.onrender.com/api/health
+- apiVersion이 v24-render-npmfix이면 정상입니다.
