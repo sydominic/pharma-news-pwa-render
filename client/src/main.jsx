@@ -411,7 +411,7 @@ function Navigation({ activeTab, setActiveTab, regulatoryDashboardUrl, onInstall
       window.open(regulatoryDashboardUrl, '_blank', 'noopener,noreferrer');
       return;
     }
-    alert('MFDS 식약처 대시보드 URL은 아직 연결되지 않았습니다. Render 환경변수 REGULATORY_DASHBOARD_URL 값에 링크를 넣으면 이 버튼에서 열립니다.');
+    alert('식약처 대시보드 URL은 아직 연결되지 않았습니다. Render 환경변수 REGULATORY_DASHBOARD_URL 값에 링크를 넣으면 이 버튼에서 열립니다.');
   };
   return (
     <nav className="tab-bar" aria-label="주요 화면">
@@ -424,7 +424,7 @@ function Navigation({ activeTab, setActiveTab, regulatoryDashboardUrl, onInstall
         );
       })}
       <button className="external-tab" onClick={openRegulatory} title="나중에 별도 React/Node 또는 Streamlit URL 연결 가능">
-        <ShieldCheck size={18} /> <span className="external-label"><span className="external-label-desktop">MFDS 식약처 대시보드</span><span className="external-label-mobile"><span>MFDS</span><span>식약처</span><span>대시보드</span></span></span>
+        <ShieldCheck size={18} /> <span className="external-label"><span className="external-label-desktop">식약처 대시보드</span><span className="external-label-mobile"><span>식약처</span><span>대시보드</span></span></span>
       </button>
       <button className="install-tab" onClick={onInstall} title="모바일/PC 홈 화면 설치">
         <Download size={18} /> <span>{isStandalone ? '설치됨' : '앱 설치'}</span>

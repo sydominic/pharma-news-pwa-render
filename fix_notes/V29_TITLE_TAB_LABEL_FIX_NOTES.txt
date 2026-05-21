@@ -1,0 +1,6 @@
+V29 반영사항
+1. Browser tab document title changed to PharmNews & MFDS Dashboard.
+2. External MFDS button label changed from MFDS 식약처 대시보드 to 식약처 대시보드.
+3. Mobile external tab label reduced to two lines: 식약처 / 대시보드.
+4. Unconnected URL alert text updated accordingly.
+5. API version: v29-title-tab-label-fix.
