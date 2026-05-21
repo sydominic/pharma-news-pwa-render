@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pharma-news-pwa-shell-v25';
+const CACHE_NAME = 'pharma-news-pwa-shell-v30';
 const APP_SHELL = [
   '/',
   '/index.html',

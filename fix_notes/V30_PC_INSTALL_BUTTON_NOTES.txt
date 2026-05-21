@@ -1,0 +1,6 @@
+V30 반영사항
+1. PC 화면에서도 앱 설치 버튼을 명확히 표시
+2. 모바일 하단 앱 설치 버튼은 유지
+3. 앱 설치 안내 문구를 PC/Android/iPhone 기준으로 보강
+4. Service Worker cache version v30 적용
+5. API version: v30-pc-install-button

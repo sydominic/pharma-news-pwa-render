@@ -426,7 +426,10 @@ function Navigation({ activeTab, setActiveTab, regulatoryDashboardUrl, onInstall
       <button className="external-tab" onClick={openRegulatory} title="나중에 별도 React/Node 또는 Streamlit URL 연결 가능">
         <ShieldCheck size={18} /> <span className="external-label"><span className="external-label-desktop">식약처 대시보드</span><span className="external-label-mobile"><span>식약처</span><span>대시보드</span></span></span>
       </button>
-      <button className="install-tab" onClick={onInstall} title="모바일/PC 홈 화면 설치">
+      <button className="install-tab desktop-install-tab" onClick={onInstall} title="PC에 앱처럼 설치">
+        <Download size={18} /> <span>{isStandalone ? '설치됨' : '앱 설치'}</span>
+      </button>
+      <button className="install-tab mobile-install-tab" onClick={onInstall} title="모바일/PC 홈 화면 설치">
         <Download size={18} /> <span>{isStandalone ? '설치됨' : '앱 설치'}</span>
       </button>
     </nav>
@@ -444,8 +447,8 @@ function PwaInstallDialog({ open, onClose, onPromptInstall, installReady, isStan
       <section className="pwa-dialog card simple-install-dialog mobile-install-dialog">
         <div className="pwa-dialog-head">
           <div>
-            <b>모바일 앱 설치 안내</b>
-            <span>휴대폰 홈 화면에 추가하면 브라우저 주소창 없이 앱처럼 실행됩니다.</span>
+            <b>앱 설치 안내</b>
+            <span>PC 또는 모바일에서 브라우저 주소창 없이 앱처럼 실행할 수 있습니다.</span>
           </div>
           <button type="button" onClick={onClose} aria-label="닫기"><X size={18} /></button>
         </div>
