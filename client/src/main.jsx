@@ -195,7 +195,7 @@ function Header({ log }) {
   return (
     <header className="hero">
       <div>
-        <h1>제약뉴스 RSS 대시보드</h1>
+        <h1>PharmNews &amp; MFDS Dashboard</h1>
         <div className="hero-meta"><CalendarDays size={15} /> 최근 수집: {latest}</div>
       </div>
       <div className="watermark">HANALL BIOPHARMA</div>
@@ -396,7 +396,7 @@ function MobileQueryBar({ filters, setFilters, options, onCollect, collecting })
 }
 
 function NavLabel({ item }) {
-  if (!item.mobileLabel) return <span>{item.label}</span>;
+  if (!item.mobileLabel) return <span className="nav-label nav-label-single">{item.label}</span>;
   return (
     <span className="nav-label nav-label-actions">
       <span className="nav-label-desktop">{item.label}</span>
@@ -411,7 +411,7 @@ function Navigation({ activeTab, setActiveTab, regulatoryDashboardUrl, onInstall
       window.open(regulatoryDashboardUrl, '_blank', 'noopener,noreferrer');
       return;
     }
-    alert('규제기관 공식자료 대시보드 URL은 아직 연결되지 않았습니다. 나중에 .env의 REGULATORY_DASHBOARD_URL 값에 링크를 넣으면 이 버튼에서 열립니다.');
+    alert('MFDS 식약처 대시보드 URL은 아직 연결되지 않았습니다. Render 환경변수 REGULATORY_DASHBOARD_URL 값에 링크를 넣으면 이 버튼에서 열립니다.');
   };
   return (
     <nav className="tab-bar" aria-label="주요 화면">
@@ -424,7 +424,7 @@ function Navigation({ activeTab, setActiveTab, regulatoryDashboardUrl, onInstall
         );
       })}
       <button className="external-tab" onClick={openRegulatory} title="나중에 별도 React/Node 또는 Streamlit URL 연결 가능">
-        <ShieldCheck size={18} /> <span>규제기관 공식자료</span>
+        <ShieldCheck size={18} /> <span className="external-label"><span className="external-label-desktop">MFDS 식약처 대시보드</span><span className="external-label-mobile"><span>MFDS</span><span>식약처</span><span>대시보드</span></span></span>
       </button>
       <button className="install-tab" onClick={onInstall} title="모바일/PC 홈 화면 설치">
         <Download size={18} /> <span>{isStandalone ? '설치됨' : '앱 설치'}</span>

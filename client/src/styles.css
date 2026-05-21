@@ -154,3 +154,66 @@ body{font-size:14px}
 .mobile-install-split div{border:1px solid #dce9f7;background:#fff;border-radius:14px;padding:11px 12px;display:grid;gap:6px}
 .mobile-install-split b{font-size:14px;color:#081f3f}.mobile-install-split span{font-size:12px;line-height:1.4;color:#3a526e}
 @media(max-width:640px){.mobile-install-split{grid-template-columns:1fr}.mobile-install-dialog{width:min(94vw,560px)}.mobile-install-help ol{font-size:13px}.mobile-install-help p{font-size:13px}}
+
+
+/* v28 label polish */
+.nav-label { display: inline-flex; align-items: center; justify-content: center; min-width: 0; }
+.nav-label-mobile { display: none !important; }
+.nav-label-desktop { display: inline !important; }
+.external-label { display: inline-flex; align-items: center; justify-content: center; min-width: 0; }
+.external-label-mobile { display: none !important; }
+.external-label-desktop { display: inline !important; }
+.tab-bar button { min-width: 0; }
+.tab-bar .external-tab { white-space: normal; }
+
+@media(max-width:720px){
+  .tab-bar {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .tab-bar button {
+    min-width: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    overflow: visible;
+  }
+  .tab-bar .nav-label-desktop { display: none !important; }
+  .tab-bar .nav-label-mobile {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.08;
+    gap: 1px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: 100%;
+  }
+  .tab-bar .nav-label-single {
+    white-space: normal;
+    line-height: 1.12;
+    max-width: 100%;
+    text-align: center;
+  }
+  .tab-bar .external-label-desktop { display: none !important; }
+  .tab-bar .external-label-mobile {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.05;
+    gap: 0;
+    white-space: normal;
+    max-width: 100%;
+    overflow: visible;
+  }
+  .tab-bar .external-tab span,
+  .tab-bar button span.nav-label {
+    font-size: 9.5px;
+  }
+  .tab-bar .external-tab {
+    white-space: normal;
+    overflow: visible;
+  }
+}
+

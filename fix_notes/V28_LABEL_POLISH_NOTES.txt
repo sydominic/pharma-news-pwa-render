@@ -1,0 +1,7 @@
+V28_LABEL_POLISH_NOTES
+
+1. Header title changed to: PharmNews & MFDS Dashboard.
+2. Action tab label rendering hardened to prevent duplicate desktop/mobile text display.
+3. Regulatory official dashboard button renamed to: MFDS 식약처 대시보드.
+4. Mobile bottom tab labels adjusted to wrap instead of clipping.
+5. API version changed to v28-label-polish.
