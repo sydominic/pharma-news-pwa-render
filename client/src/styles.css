@@ -219,7 +219,7 @@ body{font-size:14px}
 
 
 
-/* v30: restore PC app install button and keep mobile bottom install */
+/* v31: PC/Android/iPhone app install guide */
 .desktop-install-tab {
   display: inline-flex !important;
   background: #eef6ff !important;
@@ -237,5 +237,8 @@ body{font-size:14px}
   .mobile-install-tab { display: flex !important; }
   .tab-bar .mobile-install-tab span { white-space: nowrap; }
 }
-.install-split-3 { grid-template-columns: repeat(3, 1fr); }
+.install-split-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
 @media(max-width:720px){ .install-split-3 { grid-template-columns: 1fr; } }
+
+/* v31 install dialog width */
+.simple-install-dialog{width:min(680px,calc(100vw - 32px))}

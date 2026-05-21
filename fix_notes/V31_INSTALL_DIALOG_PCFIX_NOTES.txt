@@ -1,0 +1,8 @@
+V31 설치 안내 팝업 PC 분기 보정
+
+1. PC 앱 설치 버튼 클릭 시 더 이상 모바일 기준 안내만 표시하지 않도록 수정
+2. PC / Android / iPhone 설치 안내를 3개 카드로 분리
+3. PC에서는 Chrome/Edge 주소창 설치 아이콘 또는 메뉴 설치 방법 안내
+4. installReady가 false인 경우에도 설치 아이콘/메뉴 안내가 표시되도록 보강
+5. Service Worker cache version: pharma-news-pwa-shell-v31
+6. API version: v31-install-dialog-pcfix

@@ -441,6 +441,14 @@ function PwaInstallDialog({ open, onClose, onPromptInstall, installReady, isStan
   const ua = navigator.userAgent || '';
   const isIOS = /iphone|ipad|ipod/i.test(ua);
   const isAndroid = /android/i.test(ua);
+  const isDesktop = !isIOS && !isAndroid;
+  const platformTitle = isStandalone
+    ? '설치 상태'
+    : isIOS
+      ? 'iPhone / iPad 설치'
+      : isAndroid
+        ? 'Android 설치'
+        : 'PC 설치';
   return (
     <div className="pwa-dialog-layer" role="dialog" aria-modal="true" aria-label="앱 설치 안내">
       <button type="button" className="pwa-dialog-backdrop" aria-label="닫기" onClick={onClose} />
@@ -448,42 +456,52 @@ function PwaInstallDialog({ open, onClose, onPromptInstall, installReady, isStan
         <div className="pwa-dialog-head">
           <div>
             <b>앱 설치 안내</b>
-            <span>PC 또는 모바일에서 브라우저 주소창 없이 앱처럼 실행할 수 있습니다.</span>
+            <span>PC와 모바일에서 브라우저 주소창 없이 앱처럼 실행할 수 있습니다.</span>
           </div>
           <button type="button" onClick={onClose} aria-label="닫기"><X size={18} /></button>
         </div>
         <div className="pwa-help simple-install-help mobile-install-help">
           {isStandalone ? (
             <p><b>이미 앱 모드로 실행 중입니다.</b></p>
-          ) : isIOS ? (
-            <>
-              <h4>iPhone / iPad</h4>
-              <ol>
-                <li>반드시 <b>Safari</b>에서 배포 주소를 엽니다.</li>
-                <li>하단의 <b>공유</b> 버튼을 누릅니다.</li>
-                <li><b>홈 화면에 추가</b>를 선택합니다.</li>
-                <li>추가된 아이콘을 눌러 실행합니다.</li>
-              </ol>
-              <p className="install-note">iOS는 웹페이지 안에서 설치창을 직접 띄우는 방식이 제한되므로 Safari 공유 메뉴를 사용합니다.</p>
-            </>
-          ) : isAndroid ? (
-            <>
-              <h4>Android</h4>
-              <ol>
-                <li><b>Chrome</b>에서 배포 주소를 엽니다.</li>
-                <li>설치창이 뜨면 <b>설치</b>를 누릅니다.</li>
-                <li>설치창이 안 뜨면 우측 상단 <b>⋮</b> 메뉴에서 <b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 선택합니다.</li>
-              </ol>
-              <p className="install-note">설치창이 준비된 경우 아래 버튼으로 바로 설치창을 열 수 있습니다.</p>
-            </>
           ) : (
             <>
-              <h4>모바일 설치 기준</h4>
-              <p>이 버튼은 모바일 설치 안내 기준입니다. 최종 배포 주소를 휴대폰에서 열고 아래 방식으로 설치합니다.</p>
-              <div className="mobile-install-split">
+              <h4>{platformTitle}</h4>
+              {isDesktop && (
+                <ol>
+                  <li><b>Chrome 또는 Edge</b>에서 현재 배포 주소를 엽니다.</li>
+                  <li>주소창 오른쪽의 <b>설치 아이콘</b>을 누르거나, 브라우저 <b>⋯ 메뉴</b>에서 앱 설치 항목을 선택합니다.</li>
+                  <li>설치 후 시작 메뉴, 작업표시줄, 바탕화면 바로가기에서 앱처럼 실행할 수 있습니다.</li>
+                </ol>
+              )}
+              {isAndroid && (
+                <ol>
+                  <li><b>Chrome</b>에서 배포 주소를 엽니다.</li>
+                  <li>설치창이 뜨면 <b>설치</b>를 누릅니다.</li>
+                  <li>설치창이 안 뜨면 우측 상단 <b>⋮</b> 메뉴에서 <b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 선택합니다.</li>
+                </ol>
+              )}
+              {isIOS && (
+                <ol>
+                  <li>반드시 <b>Safari</b>에서 배포 주소를 엽니다.</li>
+                  <li>하단의 <b>공유</b> 버튼을 누릅니다.</li>
+                  <li><b>홈 화면에 추가</b>를 선택합니다.</li>
+                  <li>추가된 아이콘을 눌러 실행합니다.</li>
+                </ol>
+              )}
+              <div className="mobile-install-split install-split-3">
+                <div><b>PC</b><span>Chrome/Edge 주소창 설치 아이콘 또는 ⋯ 메뉴 → 앱 설치</span></div>
                 <div><b>Android</b><span>Chrome → 설치창 또는 ⋮ 메뉴 → 앱 설치/홈 화면에 추가</span></div>
-                <div><b>iPhone</b><span>Safari → 공유 버튼 → 홈 화면에 추가</span></div>
+                <div><b>iPhone / iPad</b><span>Safari → 공유 버튼 → 홈 화면에 추가</span></div>
               </div>
+              {!installReady && !isIOS && (
+                <p className="install-note">설치창이 바로 열리지 않으면 브라우저 주소창의 설치 아이콘 또는 메뉴에서 설치하십시오. 이미 설치되어 있거나 브라우저가 아직 설치 조건을 판단 중이면 버튼이 표시되지 않을 수 있습니다.</p>
+              )}
+              {isIOS && (
+                <p className="install-note">iOS는 웹페이지 안에서 설치창을 직접 띄우는 방식이 제한되므로 Safari 공유 메뉴를 사용합니다.</p>
+              )}
+              {installReady && !isIOS && (
+                <p className="install-note">설치창이 준비된 경우 아래 버튼으로 바로 설치창을 열 수 있습니다.</p>
+              )}
             </>
           )}
         </div>
