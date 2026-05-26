@@ -353,12 +353,6 @@
       "enabled": true
     },
     {
-      "name": "바이오스펙테이터 - 바이오뉴스",
-      "source_hint": "바이오스펙테이터",
-      "query": "site:biospectator.com 바이오 OR 임상 OR FDA OR EMA OR 기술수출 OR 신약",
-      "enabled": true
-    },
-    {
       "name": "식약처/규제 전체",
       "source_hint": "Google News",
       "query": "제약 식약처 의약품 GMP 허가 회수 행정처분",

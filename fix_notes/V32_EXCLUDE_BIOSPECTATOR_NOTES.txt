@@ -1,0 +1,6 @@
+V32 변경사항
+1. Google News RSS 검색 대상에서 바이오스펙테이터(biospectator.com)를 제외했습니다.
+2. data/rss_sources.json 내 '바이오스펙테이터 - 바이오뉴스' 쿼리를 제거했습니다.
+3. 기존 Supabase DB에 이미 저장된 과거 바이오스펙테이터 기사는 삭제하지 않습니다.
+4. API version: v32-exclude-biospectator
+5. Service Worker cache: pharma-news-pwa-shell-v32
